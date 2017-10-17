@@ -1,0 +1,23 @@
+{
+  "name": "ac-websockets",
+  "version": "1.0.0",
+  "description": "Demo of websockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reachwill/ac-websockets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reachwill/ac-websockets/issues"
+  },
+  "homepage": "https://github.com/reachwill/ac-websockets#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.3"
+  }
+}

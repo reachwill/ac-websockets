@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Socket Chat Demo</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+
+        div > div {
+            border:1px solid #ccc;
+            margin: 15px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+
+        <div>
+            <label>Username</label>
+            <input type="text" id="username">
+        </div>
+
+        <div>
+            <textarea id="message"></textarea>
+        </div>
+
+        <div>
+            <button type="button" id="sendBtn">Send</button>
+        </div>
+
+    </div>
+
+    <ul id="messages"></ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.min.js"></script>
+
+    <script>
+
+        var socket = io();
+
+        $('#sendBtn').click(function(e){
+            e.preventDefault();
+            var message = {
+                username:$('#username').val(),
+                message:$('#message').val()
+            };
+            socket.emit('chatIn',message);
+        });
+
+        socket.on('chatOut',(message)=>{
+            $('#messages').append('<li>' + message.username + ':' + message.message + '</li>');
+        });
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
